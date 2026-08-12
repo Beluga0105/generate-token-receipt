@@ -22,8 +22,8 @@ Both previews below come from the same fully synthetic audit record. Every token
     <th>A4 invoice-style document</th>
   </tr>
   <tr>
-    <td><a href="docs/images/sample-receipt-80mm.png"><img src="docs/images/sample-receipt-80mm.png" alt="Fully synthetic 80 mm token receipt sample" width="380"></a></td>
-    <td><a href="docs/images/sample-receipt-a4.png"><img src="docs/images/sample-receipt-a4.png" alt="Fully synthetic A4 token receipt sample" width="520"></a></td>
+    <td align="center"><a href="docs/images/sample-receipt-80mm.png"><img src="docs/images/sample-receipt-80mm.png" alt="Fully synthetic 80 mm token receipt sample" height="480"></a></td>
+    <td align="center"><a href="docs/images/sample-receipt-a4.png"><img src="docs/images/sample-receipt-a4.png" alt="Fully synthetic A4 token receipt sample" height="480"></a></td>
   </tr>
 </table>
 

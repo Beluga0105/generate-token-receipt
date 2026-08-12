@@ -22,8 +22,8 @@
     <th>A4 电子账单式文档</th>
   </tr>
   <tr>
-    <td><a href="docs/images/sample-receipt-80mm.png"><img src="docs/images/sample-receipt-80mm.png" alt="完全虚构的 80 mm token 小票示例" width="380"></a></td>
-    <td><a href="docs/images/sample-receipt-a4.png"><img src="docs/images/sample-receipt-a4.png" alt="完全虚构的 A4 token 账单示例" width="520"></a></td>
+    <td align="center"><a href="docs/images/sample-receipt-80mm.png"><img src="docs/images/sample-receipt-80mm.png" alt="完全虚构的 80 mm token 小票示例" height="480"></a></td>
+    <td align="center"><a href="docs/images/sample-receipt-a4.png"><img src="docs/images/sample-receipt-a4.png" alt="完全虚构的 A4 token 账单示例" height="480"></a></td>
   </tr>
 </table>
 
