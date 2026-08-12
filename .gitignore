@@ -43,6 +43,7 @@ usage-*.json
 response.json
 response-*.json
 
-# The two reviewed, fully synthetic README previews are repository assets
+# Reviewed, fully synthetic README preview assets
 !docs/images/sample-receipt-80mm.png
 !docs/images/sample-receipt-a4.png
+!docs/images/sample-receipt-80mm-readme.png

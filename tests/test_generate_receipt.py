@@ -11,6 +11,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 GENERATOR = ROOT / "scripts" / "generate_receipt.py"
+RENDERER = ROOT / "scripts" / "render_receipt.py"
 
 
 def run_generator(
@@ -509,6 +510,18 @@ class ReceiptGeneratorTests(unittest.TestCase):
 
 
 class ReleaseIntegrityTests(unittest.TestCase):
+    def test_renderer_documents_safe_80mm_viewport(self) -> None:
+        result = subprocess.run(
+            [sys.executable, str(RENDERER), "--help"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        self.assertRegex(
+            result.stdout,
+            r"at least 500 for\s+complete 80 mm previews",
+        )
+
     def test_skill_metadata_and_release_assets(self) -> None:
         skill_text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
         self.assertTrue(skill_text.startswith("---\n"))
@@ -518,15 +531,28 @@ class ReleaseIntegrityTests(unittest.TestCase):
 
         english = (ROOT / "README.md").read_text(encoding="utf-8")
         chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
-        for relative in (
-            "docs/images/sample-receipt-80mm.png",
-            "docs/images/sample-receipt-a4.png",
-        ):
+        expected_sizes = {
+            "docs/images/sample-receipt-80mm.png": (500, 940),
+            "docs/images/sample-receipt-a4.png": (900, 1220),
+            "docs/images/sample-receipt-80mm-readme.png": (900, 1220),
+        }
+        for relative, expected_size in expected_sizes.items():
             self.assertIn(relative, english)
             self.assertIn(relative, chinese)
             image = ROOT / relative
             self.assertTrue(image.is_file())
-            self.assertEqual(image.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
+            image_bytes = image.read_bytes()
+            self.assertEqual(image_bytes[:8], b"\x89PNG\r\n\x1a\n")
+            actual_size = (
+                int.from_bytes(image_bytes[16:20], "big"),
+                int.from_bytes(image_bytes[20:24], "big"),
+            )
+            self.assertEqual(actual_size, expected_size)
+
+        self.assertIn('width="50%"', english)
+        self.assertEqual(english.count('width="285"'), 2)
+        self.assertIn('width="50%"', chinese)
+        self.assertEqual(chinese.count('width="285"'), 2)
 
 
 if __name__ == "__main__":

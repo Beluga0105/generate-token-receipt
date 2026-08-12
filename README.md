@@ -18,12 +18,12 @@ Both previews below come from the same fully synthetic audit record. Every token
 
 <table>
   <tr>
-    <th>80 mm receipt</th>
-    <th>A4 invoice-style document</th>
+    <th width="50%">80 mm receipt</th>
+    <th width="50%">A4 invoice-style document</th>
   </tr>
   <tr>
-    <td align="center"><a href="docs/images/sample-receipt-80mm.png"><img src="docs/images/sample-receipt-80mm.png" alt="Fully synthetic 80 mm token receipt sample" height="480"></a></td>
-    <td align="center"><a href="docs/images/sample-receipt-a4.png"><img src="docs/images/sample-receipt-a4.png" alt="Fully synthetic A4 token receipt sample" height="480"></a></td>
+    <td width="50%" align="center"><a href="docs/images/sample-receipt-80mm.png"><img src="docs/images/sample-receipt-80mm-readme.png" alt="Fully synthetic 80 mm token receipt sample" width="285"></a></td>
+    <td width="50%" align="center"><a href="docs/images/sample-receipt-a4.png"><img src="docs/images/sample-receipt-a4.png" alt="Fully synthetic A4 token receipt sample" width="285"></a></td>
   </tr>
 </table>
 
@@ -201,6 +201,8 @@ python3 "$SKILL_DIR/scripts/render_receipt.py" \
 
 The renderer searches for Chrome or Chromium on macOS, Linux, and Windows. If detection fails, pass an explicit executable path with `--chrome`.
 
+For an 80 mm PNG, keep the viewport at least 500 pixels wide so Chrome captures the centered paper without clipping it.
+
 Receipt generation never sends a job to a physical printer.
 
 ## Pricing behavior
@@ -268,6 +270,7 @@ generate-token-receipt/
 ├── docs/
 │   └── images/
 │       ├── sample-receipt-80mm.png
+│       ├── sample-receipt-80mm-readme.png
 │       └── sample-receipt-a4.png
 ├── references/
 │   └── receipt-contract.md

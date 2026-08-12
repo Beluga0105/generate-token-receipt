@@ -18,12 +18,12 @@
 
 <table>
   <tr>
-    <th>80 mm 小票</th>
-    <th>A4 电子账单式文档</th>
+    <th width="50%">80 mm 小票</th>
+    <th width="50%">A4 电子账单式文档</th>
   </tr>
   <tr>
-    <td align="center"><a href="docs/images/sample-receipt-80mm.png"><img src="docs/images/sample-receipt-80mm.png" alt="完全虚构的 80 mm token 小票示例" height="480"></a></td>
-    <td align="center"><a href="docs/images/sample-receipt-a4.png"><img src="docs/images/sample-receipt-a4.png" alt="完全虚构的 A4 token 账单示例" height="480"></a></td>
+    <td width="50%" align="center"><a href="docs/images/sample-receipt-80mm.png"><img src="docs/images/sample-receipt-80mm-readme.png" alt="完全虚构的 80 mm token 小票示例" width="285"></a></td>
+    <td width="50%" align="center"><a href="docs/images/sample-receipt-a4.png"><img src="docs/images/sample-receipt-a4.png" alt="完全虚构的 A4 token 账单示例" width="285"></a></td>
   </tr>
 </table>
 
@@ -201,6 +201,8 @@ python3 "$SKILL_DIR/scripts/render_receipt.py" \
 
 渲染器会在 macOS、Linux 和 Windows 上查找 Chrome 或 Chromium。如果自动检测失败，可通过 `--chrome` 传入浏览器可执行文件的绝对路径。
 
+渲染 80 mm PNG 时，视口宽度应至少为 500 像素，以免 Chrome 截断居中的纸张。
+
 生成小票不会向实体打印机发送任务。
 
 ## 定价规则
@@ -268,6 +270,7 @@ generate-token-receipt/
 ├── docs/
 │   └── images/
 │       ├── sample-receipt-80mm.png
+│       ├── sample-receipt-80mm-readme.png
 │       └── sample-receipt-a4.png
 ├── references/
 │   └── receipt-contract.md

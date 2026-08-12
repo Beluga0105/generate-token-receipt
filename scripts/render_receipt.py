@@ -69,7 +69,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--pdf", help="Output PDF path")
     parser.add_argument("--png", help="Output PNG preview path")
     parser.add_argument("--chrome", help="Chrome/Chromium executable path")
-    parser.add_argument("--viewport-width", type=int, default=900)
+    parser.add_argument(
+        "--viewport-width",
+        type=int,
+        default=900,
+        help="PNG viewport width in pixels; use at least 500 for complete 80 mm previews",
+    )
     parser.add_argument("--viewport-height", type=int, default=1200)
     parser.add_argument("--timeout", type=int, default=45, help="Seconds per render")
     args = parser.parse_args()
