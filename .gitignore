@@ -1,0 +1,48 @@
+# macOS and editor metadata
+.DS_Store
+**/.DS_Store
+.idea/
+.vscode/
+
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Secrets, local logs, and Codex telemetry
+.env
+.env.*
+!.env.example
+*.log
+*.jsonl
+*.sqlite
+*.sqlite3
+*.sqlite-*
+
+# Generated receipts and usage exports can contain private metadata
+*.html
+*.htm
+*.pdf
+*-preview.png
+output/
+outputs/
+receipts/
+
+# Common names for receipt sidecars and supplied usage exports
+*-receipt.json
+*-receipt-*.json
+receipt-*.json
+token-receipt*.json
+project-token*.json
+usage.json
+usage-*.json
+response.json
+response-*.json
+
+# The two reviewed, fully synthetic README previews are repository assets
+!docs/images/sample-receipt-80mm.png
+!docs/images/sample-receipt-a4.png

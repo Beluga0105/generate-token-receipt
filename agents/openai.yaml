@@ -1,0 +1,4 @@
+interface:
+  display_name: "Token Usage Receipt"
+  short_description: "Query Codex usage and price mixed-model token receipts"
+  default_prompt: "Use $generate-token-receipt to query my requested Codex conversation, completed-turn, or project scope, price each model with an exact or clearly labeled reference rate, and create an auditable 80 mm or A4 token receipt."
