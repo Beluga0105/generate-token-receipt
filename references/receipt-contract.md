@@ -136,6 +136,6 @@ Retain full Decimal calculation strings in JSON. Round only presentation values 
 
 Keep HTML self-contained with no remote fonts, scripts, or images. Use print CSS for 80 mm paper, black ink, zero page margin, tabular numerals, and `break-inside: avoid` on logical sections.
 
-Keep presentation choices outside the normalized record. The renderer produces a monochrome luxury-retail-inspired 80 mm slip or an Apple-inspired A4 document and embeds the repository's original receipt mark as a data URI. Re-render an existing sidecar rather than rebuilding the record so every paper size retains the same receipt ID, usage, pricing, and checksum. Label both layouts as locally generated usage documents, not official OpenAI, Apple, luxury-brand, or tax invoices.
+Keep presentation choices outside the normalized record. The renderer produces a monochrome luxury-retail-inspired 80 mm slip or an Apple-inspired A4 document and embeds the bundled Codex logo as a data URI. Re-render an existing sidecar rather than rebuilding the record so every paper size retains the same receipt ID, usage, pricing, and checksum. Label both layouts as locally generated usage documents, not official OpenAI, Apple, luxury-brand, or tax invoices.
 
 Treat the JSON as the future printer interface. Add an ESC/POS renderer later with an explicit profile containing `paper_mm`, `chars_per_line`, `dpi`, `codepage`, `feed`, and `cut`. Prefer a one-bit raster path for reliable Chinese output. Require an explicit print command and device selection; receipt generation alone must never print.

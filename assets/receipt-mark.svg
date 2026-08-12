@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 104 104" role="img" aria-labelledby="title">
-  <title id="title">Token receipt mark</title>
-  <rect x="4" y="4" width="96" height="96" rx="27" fill="#202124"/>
-  <path d="M29 30h46M29 46h46M45 72h30" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="8"/>
-  <circle cx="29" cy="72" r="5" fill="#fff"/>
-</svg>

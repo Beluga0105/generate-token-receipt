@@ -1298,11 +1298,11 @@ def load_receipt_record(path: Path) -> dict[str, Any]:
     return record
 
 
-def receipt_mark_data_uri() -> str:
-    asset = Path(__file__).resolve().parent.parent / "assets" / "receipt-mark.svg"
+def codex_logo_data_uri() -> str:
+    asset = Path(__file__).resolve().parent.parent / "assets" / "codex-logo.png"
     if not asset.is_file():
-        raise FileNotFoundError(f"Receipt mark asset not found: {asset}")
-    return "data:image/svg+xml;base64," + base64.b64encode(asset.read_bytes()).decode("ascii")
+        raise FileNotFoundError(f"Codex logo asset not found: {asset}")
+    return "data:image/png;base64," + base64.b64encode(asset.read_bytes()).decode("ascii")
 
 
 def render_codex_invoice_html(record: dict[str, Any], paper: str) -> str:
@@ -1395,7 +1395,7 @@ def render_codex_invoice_html(record: dict[str, Any], paper: str) -> str:
         "unavailable": "Unavailable",
     }.get(status, status.replace("_", " ").capitalize())
     embedded = json.dumps(record, ensure_ascii=False, sort_keys=True).replace("</", "<\\/")
-    receipt_mark = receipt_mark_data_uri()
+    codex_logo = codex_logo_data_uri()
     body_class = "paper-a4" if paper == "a4" else "paper-80mm"
     page_size = "A4" if paper == "a4" else "80mm 230mm"
     page_script = ""
@@ -1540,7 +1540,7 @@ th:not(:first-child),td:not(:first-child) {{ white-space:nowrap; }}
 <main class="invoice">
   <header class="brand-row">
     <div class="brand-lockup">
-      <img class="brand-logo" src="{receipt_mark}" width="40" height="40" alt="Token receipt mark">
+      <img class="brand-logo" src="{codex_logo}" width="40" height="40" alt="Codex logo">
       <div><span class="brand-name">Codex</span></div>
     </div>
     <div class="document-id"><span>Receipt number</span><strong>{esc(receipt['id'])}</strong></div>

@@ -10,7 +10,7 @@ Choose between a monochrome 80 mm receipt and a restrained A4 invoice-style layo
 > Receipts generated from Codex or ChatGPT subscription telemetry show an **API-equivalent token-cost estimate**. They are not OpenAI bills, subscription charges, tax invoices, or proof of payment.
 
 > [!NOTE]
-> This is an independent open-source project, not an OpenAI product and not endorsed by OpenAI. OpenAI and Codex are trademarks of OpenAI; see the [OpenAI brand guidelines](https://openai.com/brand/). The repository uses its own receipt mark, not an OpenAI logo, and the MIT License grants no rights to third-party trademarks.
+> This is an independent open-source project, not an OpenAI product and not endorsed by OpenAI. OpenAI and Codex are trademarks of OpenAI; see the [OpenAI brand guidelines](https://openai.com/brand/). Generated receipts use a bundled Codex logo only to identify the related service. The logo and third-party trademarks are not covered by the MIT License.
 
 ## Sample layouts
 
@@ -225,7 +225,7 @@ Always verify current pricing against the exact official model page before suppl
 - Prompts, responses, API keys, and project files are never copied into the receipt.
 - Raw Codex session and turn UUIDs are redacted by default.
 - Project receipts store the folder name and a short path fingerprint, not the absolute project path. The fingerprint is stable and can link receipts generated for the same local path.
-- HTML output embeds the repository's original receipt mark as a data URI and loads no remote fonts, scripts, or images.
+- HTML output embeds the bundled Codex logo as a data URI and loads no remote fonts, scripts, or images.
 - `--include-session-ids` is an explicit opt-in for local forensic correlation and may expose sensitive identifiers.
 - API request IDs and supplied usage filenames are redacted by default; `--include-source-metadata` is an explicit opt-in.
 - Both the HTML and JSON contain the complete normalized audit record, including detailed per-call metadata. Review both before sharing publicly.
@@ -266,7 +266,7 @@ generate-token-receipt/
 ├── agents/
 │   └── openai.yaml
 ├── assets/
-│   └── receipt-mark.svg
+│   └── codex-logo.png
 ├── docs/
 │   └── images/
 │       ├── sample-receipt-80mm.png

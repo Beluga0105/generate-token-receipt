@@ -10,7 +10,7 @@
 > 基于 Codex 或 ChatGPT 订阅遥测生成的金额是 **API 等价 token 成本估算**。它不是 OpenAI 账单、实际订阅扣费、税务发票或付款凭证。
 
 > [!NOTE]
-> 这是一个独立的开源项目，不是 OpenAI 产品，也未获得 OpenAI 背书。OpenAI 和 Codex 是 OpenAI 的商标，使用时应遵循 [OpenAI 品牌指南](https://openai.com/brand/)。仓库使用自有的小票图形，不使用 OpenAI 官方标识；MIT License 不授予任何第三方商标权利。
+> 这是一个独立的开源项目，不是 OpenAI 产品，也未获得 OpenAI 背书。OpenAI 和 Codex 是 OpenAI 的商标，使用时应遵循 [OpenAI 品牌指南](https://openai.com/brand/)。生成的小票仅用内置 Codex 图标识别相关服务；该图标及第三方商标不在 MIT License 的授权范围内。
 
 ## 样式参考
 
@@ -225,7 +225,7 @@ Skill 会先按每次模型调用计价，再汇总整张小票。
 - 不会将 prompt、回复内容、API 密钥或项目文件复制到小票中。
 - 默认隐去原始 Codex session 和 turn UUID。
 - 项目小票只保存文件夹名和简短路径指纹，不保存绝对项目路径。该指纹是稳定的，因此可以关联同一本地路径生成的多份小票。
-- HTML 使用 data URI 内嵌仓库自有的小票图形，不加载远程字体、脚本或图像。
+- HTML 使用 data URI 内嵌 Codex 图标，不加载远程字体、脚本或图像。
 - `--include-session-ids` 是为本地取证关联提供的显式选项，可能暴露敏感标识符。
 - API request ID 和输入 usage 文件名默认隐去；`--include-source-metadata` 是显式选项。
 - HTML 和 JSON 都包含完整的标准化审计记录，其中含有详细的单次调用元数据。公开分享前应同时审查两者。
@@ -266,7 +266,7 @@ generate-token-receipt/
 ├── agents/
 │   └── openai.yaml
 ├── assets/
-│   └── receipt-mark.svg
+│   └── codex-logo.png
 ├── docs/
 │   └── images/
 │       ├── sample-receipt-80mm.png

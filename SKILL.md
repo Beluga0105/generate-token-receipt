@@ -12,7 +12,7 @@ Create an itemized electronic receipt from exact usage telemetry when available.
 - Use `--paper 80mm` for the monochrome boutique-style Codex receipt. This is the default when no paper option is passed.
 - Use `--paper a4` for the restrained Apple-inspired electronic invoice.
 - Treat both layouts as locally generated usage documents, never as official Apple, OpenAI, luxury-brand, or tax invoices.
-- Keep the brand lockup to the repository's original receipt mark and the Codex text label only. Do not add a subtitle beneath the label or explanatory copy beneath the receipt title; keep billing-status disclosures in the Important information section and footer.
+- Keep the brand lockup to the bundled Codex logo and the Codex text label only. Do not add a subtitle beneath the label or explanatory copy beneath the receipt title; keep billing-status disclosures in the Important information section and footer.
 - `--style codex-invoice` remains as a compatibility flag. No other style is supported.
 - When generating both paper sizes for the same usage, create the audit record once, then use `--receipt-json` for the additional view. Paper must not change the receipt ID, token facts, pricing, or checksum.
 
@@ -159,7 +159,7 @@ Do not send anything to a physical printer. A future printer renderer must consu
 4. Confirm the model, rates, rate date, source URL, estimate label, and excluded charges are visible.
 5. For mixed-model usage, confirm every observed model has a `pricing.model_rate_cards` entry and that exact matches remain distinct. If any fallback is used, confirm the visible status says `Approx.` and the warning names both the unmatched model and `gpt-5.6-terra`.
 6. Render the latest PDF to PNG and inspect it for clipping, overflow, broken Chinese glyphs, weak contrast, or extra blank pages.
-7. Confirm every HTML layout embeds exactly one local receipt mark and does not load remote assets.
+7. Confirm every HTML layout embeds exactly one local Codex logo and does not load remote assets.
 8. For multiple layouts, compare their embedded JSON and confirm it is identical.
 9. Confirm `source.query_scope`, `source.scope_label`, matched turn count, and matched session count describe the user's requested range. For a project query, confirm the absolute project path and raw UUIDs do not appear in HTML or JSON. For an API usage object, confirm the request ID and input filename are absent unless explicitly requested.
 10. Report the requested scope and receipt cutoff time, then deliver the HTML, JSON, and requested PDF exactly once each.

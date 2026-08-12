@@ -103,7 +103,8 @@ class ReceiptGeneratorTests(unittest.TestCase):
             self.assertEqual(embedded_record(receipt_80mm), embedded_record(receipt_a4))
             for html_path in (receipt_80mm, receipt_a4):
                 content = html_path.read_text(encoding="utf-8")
-                self.assertIn("data:image/svg+xml;base64,", content)
+                self.assertEqual(content.count("data:image/png;base64,"), 1)
+                self.assertIn('alt="Codex logo"', content)
                 self.assertNotRegex(content, r'<(?:script|img|link)[^>]+(?:src|href)="https?://')
 
     def test_subcent_values_keep_full_decimal_precision(self) -> None:
@@ -528,6 +529,12 @@ class ReleaseIntegrityTests(unittest.TestCase):
         frontmatter = skill_text.split("---\n", 2)[1]
         self.assertRegex(frontmatter, r"(?m)^name: generate-token-receipt$")
         self.assertRegex(frontmatter, r"(?m)^description: .+")
+
+        logo = ROOT / "assets" / "codex-logo.png"
+        self.assertTrue(logo.is_file())
+        logo_bytes = logo.read_bytes()
+        self.assertEqual(logo_bytes[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertFalse((ROOT / "assets" / "receipt-mark.svg").exists())
 
         english = (ROOT / "README.md").read_text(encoding="utf-8")
         chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
